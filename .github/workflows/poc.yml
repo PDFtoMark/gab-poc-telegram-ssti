@@ -63,7 +63,7 @@ jobs:
           INPUT_TO: "42"
           SSL_CERT_FILE: ${{ github.workspace }}/certs/cert.pem
           INPUT_MESSAGE: |
-            User @attacker commented PR #1 "A={{ uppercase "abc" }} B={{ env "INPUT_TOKEN" }} C={{expandenv "$INPUT_TOKEN"}} D={{ .Config.Token }} E={{ .Token }} F={{ getHostByName "localhost" }} G={{ .Config.To }}" (https://github.com/victim/repo/pull/1)
+            User @attacker commented PR #1 "A={{ uppercase "abc" }} B={{ env "INPUT_TOKEN" }} C={{expandenv "$INPUT_TOKEN"}} F={{ getHostByName "localhost" }} H={{ Config.Token }}" (https://github.com/victim/repo/pull/1)
         run: |
           set -euo pipefail
           ./drone-telegram || true
