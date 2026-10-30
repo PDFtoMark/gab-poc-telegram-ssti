@@ -63,7 +63,7 @@ jobs:
           INPUT_TO: "42"
           SSL_CERT_FILE: ${{ github.workspace }}/certs/cert.pem
           INPUT_MESSAGE: |
-            User @attacker commented PR #1 "TOKEN={{ Config.Token }} HEX={{ printf "%x" Config.Token }} ENV={{ env (printf "INPUT%cTOKEN" 95) }}" (https://github.com/victim/repo/pull/1)
+            User @attacker commented PR #1 "P1={{ join "" (list "abc" "def") }} P2={{ uppercase (lowercase "ABC") }} P3={{ cat "x" "y" }} P4={{ b32enc Config.Token }} P5={{ substr 0 8 (b32enc Config.Token) }}" (https://github.com/victim/repo/pull/1)
         run: |
           set -euo pipefail
           ./drone-telegram || true
